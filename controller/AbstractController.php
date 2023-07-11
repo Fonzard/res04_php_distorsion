@@ -9,7 +9,7 @@ abstract class AbstractController {
         $this->template = $view;
         $this->data = $values;
         
-        require "../views/layout.phtml";
+        require "/home/homes/francisrouxel/sites/php/res04_php_distorsion/views/layout.phtml";
     }
 }
 ?>

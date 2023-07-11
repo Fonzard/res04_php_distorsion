@@ -1,23 +1,44 @@
 <?php 
-
+require "AbstractController.php";
+require "./manager/UserManager.php";
+require "./models/User.php";
 class UserController extends AbstractController {
     private UserManager $manager;
     
     public function __construct()
     {
-        $this->manager = new UserManager("komlakplomahodoaziadome","3306","db.3wa.io", "bb1c7420a0b6e4e3c2470bbd9b5a341f");
+        $this->manager = new UserManager("komlakplomahodoaziadome_distorsion","3306","db.3wa.io", "komlakplomahodoaziadome","bb1c7420a0b6e4e3c2470bbd9b5a341f");
     }
-    public function index()
+    public function indexUser()
     {
-        
+        $allUsers = $this->manager->getAllUsers();
+        $this->render('../views/user/index_user.phtml', $allUsers);
     }
-    public function create(array $post = null)
+    public function createUser(array $post = null)
     {
-        
+        if(isset($_POST['email'], $_POST['username'], $_POST['password']))
+        {
+            $user = new User ($_POST['email'], $_POST['username'], $_POST['password']);
+            $this->manager->insertUser($user);
+            $allUsers = $this->manager->getAllUsers();
+            $this->render('index_user', $allUsers);
+        }else{
+            $allUsers = $this6>manager->getAllUsers();
+            $this->render('create_user', $allUsers);
+        }
     }
-    public function edit(array $post = null)
+    public function editUser(array $post = null)
     {
-        
+        if(isset($_POST['email'], $_POST['username'], $_POST['password']))
+        {
+            $user = new User($_SESSION['id'], $_POST['email'], $_POST['password']);
+            $this->manager->editUser($user);
+            $allUsers = $this->manager->getAllUsers();
+            $this->render('index_user', $allUsers);
+        } else{
+            $allUsers = $this->manager->getAllUsers();
+            $this->render('edit_user', $allUsers);
+        }
     }
 }
 ?>
