@@ -8,11 +8,10 @@ class User {
     
     public function __construct(string $username, string $email, string $password){
         $this->id = null;
-        $this->email = $email;
         $this->username = $username;
+        $this->email = $email;
         $this->password = $password;
     }
-    
     public function getId() :? int
     {
         return $this->id;
@@ -46,7 +45,6 @@ class User {
     {
         $this->password = $password;
     }
-
 }
 
 ?>

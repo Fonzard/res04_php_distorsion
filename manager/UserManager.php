@@ -40,9 +40,9 @@ class UserManager extends AbstractManager {
                 ];
             $query->execute($parameters);
         }
-        // $id = $this->db->lastInsertId(); Utile ?? Question à poser
-        // $user->setId($id);
-        // return $user;
+        $id = $this->db->lastInsertId();
+        $user->setId($id);
+        return $user;
     }
     public function editUser(User $user): void
     {

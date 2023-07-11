@@ -2,6 +2,7 @@
 require "AbstractController.php";
 require "./manager/UserManager.php";
 require "./models/User.php";
+
 class UserController extends AbstractController {
     private UserManager $manager;
     
@@ -16,9 +17,9 @@ class UserController extends AbstractController {
     }
     public function createUser(array $post = null)
     {
-        if(isset($_POST['email'], $_POST['username'], $_POST['password']))
+        if(isset($_POST['username'], $_POST['email'], $_POST['password']))
         {
-            $user = new User ($_POST['email'], $_POST['username'], $_POST['password']);
+            $user = new User ($_POST['username'], $_POST['email'], $_POST['password']);
             $this->manager->insertUser($user);
             $allUsers = $this->manager->getAllUsers();
             $this->render('login', $allUsers);
@@ -29,9 +30,9 @@ class UserController extends AbstractController {
     }
     public function editUser(array $post = null)
     {
-        if(isset($_POST['email'], $_POST['username'], $_POST['password']))
+        if(isset($_POST['username'], $_POST['email'], $_POST['password']))
         {
-            $user = new User($_SESSION['id'], $_POST['email'], $_POST['password']);
+            $user = new User($_SESSION['id'], $_POST['username'], $_POST['email'], $_POST['password']);
             $this->manager->editUser($user);
             $allUsers = $this->manager->getAllUsers();
             $this->render('login', $allUsers);
