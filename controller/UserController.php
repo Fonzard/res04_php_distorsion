@@ -12,7 +12,7 @@ class UserController extends AbstractController {
     public function indexUser()
     {
         $allUsers = $this->manager->getAllUsers();
-        $this->render('../views/user/index_user.phtml', $allUsers);
+        $this->render('./views/login/login.phtml', $allUsers);
     }
     public function createUser(array $post = null)
     {

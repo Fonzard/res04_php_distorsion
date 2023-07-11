@@ -15,7 +15,7 @@ class RoomController extends AbstractController{
     public function indexRoom()
     {
         $allRooms = $this->manager->getAllRooms();
-        $this->render('../views/room/index_room.phtml')
+        $this->render('./views/room/index_room.phtml')
     }
     public function createRoom(array $post = null)
     {

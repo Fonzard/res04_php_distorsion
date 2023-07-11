@@ -1,19 +1,24 @@
 <form action="index.php?route=login" method="POST">
     <fieldset>
-		<legend>Inscription</legend>
-		
-		<div class="field">
-			<label for="pseudo">Pseudo</label>
-			<div class="pseudo"><input type="text" id="pseudo" name="pseudo"></div>
-		</div>
-		
-		<div class="field">
-			<label for="password">Password</label>
-			<div class="password"><input type="password" id="password" name="password"></div>
-		</div>
-		
-		<div>
-	        <input type="submit" value="Connexion">
+        <legend>Connexion</legend>
+        
+        <div class="field">
+            <label for="pseudo">Pseudo</label>
+            <div class="pseudo"><input type="text" id="pseudo" name="pseudo"></div>
         </div>
-	</fieldset>
+        
+        <div class="field">
+            <label for="password">Password</label>
+            <div class="password"><input type="password" id="password" name="password"></div>
+        </div>
+        
+        <div>
+            <input type="submit" value="Connexion">
+        </div>
+        
+        <div>
+             <a href="index.php?route=register">Inscription</a>
+        </div>
+        
+    </fieldset>
 </form>

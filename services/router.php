@@ -13,6 +13,12 @@ function checkRoute(string $route): void
         case 'edit_user':
             $userController->editUser();
             break;
+        case 'login':
+            $userController->indexUser();
+            break;
+        case 'register':
+            require'./views/register/register.phtml';
+            break;
         default:
             $userController->indexUser();
             break;
