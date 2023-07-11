@@ -1,0 +1,15 @@
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    <?php foreach($this->data as $room) : ?>
+    <tr>
+        <a href="index.php?route=edit_room&id=<?php echo $room['id'];?>"> 
+        <td><?= $room['name']; ?></td>
+        <td><?= $room['description']; ?></td>
+        </a>
+    </tr>
+    <?php endforeach; ?>
+</table>

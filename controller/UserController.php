@@ -4,6 +4,7 @@ require "./manager/UserManager.php";
 require "./models/User.php";
 
 class UserController extends AbstractController {
+    
     private UserManager $manager;
     
     public function __construct()

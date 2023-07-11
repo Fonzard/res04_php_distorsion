@@ -42,7 +42,7 @@ class RoomManager extends AbstractManager {
         $room->setId($id);
         return $room;
     }
-    public function editUser(Room $room): void
+    public function editRoom(Room $room): void
     {
         $query = $this->db->prepare("UPDATE rooms SET name = :name, description = :description WHERE id = :id");
         $parameters = [

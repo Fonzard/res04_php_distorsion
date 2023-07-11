@@ -3,7 +3,7 @@ require "AbstractManager.php";
 
 class UserManager extends AbstractManager {
     
-        public function getAllUsers() : array
+    public function getAllUsers() : array
     {
         $query = $this->db->prepare("SELECT * FROM users");
         if($query->execute())

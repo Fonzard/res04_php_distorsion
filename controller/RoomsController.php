@@ -15,13 +15,13 @@ class RoomController extends AbstractController{
     public function indexRoom()
     {
         $allRooms = $this->manager->getAllRooms();
-        $this->render('/views/room/index_room.phtml')
+        $this->render('index_room',$allRooms);
     }
     public function createRoom(array $post = null)
     {
         if(isset($_POST['name'], $_POST['description']))
         {
-            $room = new Room ($_SESSION['id'], $_POST['name'], $_POST['description'])
+            $room = new Room ($_SESSION['id'], $_POST['name'], $_POST['description']);
             $this->manager->editRoom($room);
             $allRooms = $this->manager->getAllRooms();
             $this->render('index_room', $allRooms);
