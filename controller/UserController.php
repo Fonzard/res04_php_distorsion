@@ -12,7 +12,7 @@ class UserController extends AbstractController {
     public function indexUser()
     {
         $allUsers = $this->manager->getAllUsers();
-        $this->render('./views/login/login.phtml', $allUsers);
+        $this->render('login', $allUsers);
     }
     public function createUser(array $post = null)
     {
@@ -21,10 +21,10 @@ class UserController extends AbstractController {
             $user = new User ($_POST['email'], $_POST['username'], $_POST['password']);
             $this->manager->insertUser($user);
             $allUsers = $this->manager->getAllUsers();
-            $this->render('index_user', $allUsers);
+            $this->render('login', $allUsers);
         }else{
-            $allUsers = $this6>manager->getAllUsers();
-            $this->render('create_user', $allUsers);
+            $allUsers = $this->manager->getAllUsers();
+            $this->render('register', $allUsers);
         }
     }
     public function editUser(array $post = null)
@@ -34,7 +34,7 @@ class UserController extends AbstractController {
             $user = new User($_SESSION['id'], $_POST['email'], $_POST['password']);
             $this->manager->editUser($user);
             $allUsers = $this->manager->getAllUsers();
-            $this->render('index_user', $allUsers);
+            $this->render('login', $allUsers);
         } else{
             $allUsers = $this->manager->getAllUsers();
             $this->render('edit_user', $allUsers);

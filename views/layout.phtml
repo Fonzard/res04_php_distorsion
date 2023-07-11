@@ -16,7 +16,21 @@
         </nav>
     </header>
        
-    <?php require $this->template ;?>
+    <?php 
+    switch($this->template){
+        case "edit_user":
+             require "/home/homes/francisrouxel/sites/php/res04_php_distorsion/views/user/edit_user.phtml";
+            break;
+            
+        case "login":
+             require "/home/homes/francisrouxel/sites/php/res04_php_distorsion/views/login/login.phtml";
+            break;
+            
+        case "register":
+             require "/home/homes/francisrouxel/sites/php/res04_php_distorsion/views/register/register.phtml";
+            break;
+    }
+    ?>
 
 </body>
 </html>

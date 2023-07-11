@@ -7,9 +7,6 @@ function checkRoute(string $route): void
     $userController = new UserController(); //Connecte à la BDD
     
     switch($route){
-        case 'create_user':
-            $userController->createUser();
-            break;
         case 'edit_user':
             $userController->editUser();
             break;
@@ -17,7 +14,7 @@ function checkRoute(string $route): void
             $userController->indexUser();
             break;
         case 'register':
-            require'./views/register/register.phtml';
+             $userController->createUser();
             break;
         default:
             $userController->indexUser();
