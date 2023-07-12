@@ -4,7 +4,7 @@
     private ?int $id;
     private string $name;
     private string $description;
-    private int $category_id;
+    private ?int $categoryId;
     
     //category_id à revoir
 
@@ -13,6 +13,7 @@
             $this->id = null;
             $this->name = $name;
             $this->description = $description;
+            $this->categoryId = null;
          //initialiser $category_id à revoir 
 
         }
@@ -55,5 +56,16 @@
         {
             return $this->description;
         }
+        public function setCategoryId(string $categoryId) : void 
+        {
+            $this->categoryId = $categoryId;
+        }
+            
+            
+        public function getCategoryId() : string
+        {
+            return $this->categoryId;
+        }
+        
     }
 ?>
