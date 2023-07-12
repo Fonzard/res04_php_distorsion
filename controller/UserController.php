@@ -1,5 +1,4 @@
 <?php 
-require "AbstractController.php";
 require "./manager/UserManager.php";
 require "./models/User.php";
 

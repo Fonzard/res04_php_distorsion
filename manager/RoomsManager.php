@@ -1,5 +1,4 @@
 <?php 
-require "AbstractManager.php";
 
 class RoomManager extends AbstractManager {
     

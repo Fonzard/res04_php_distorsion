@@ -8,6 +8,7 @@ function checkRoute(string $route): void
     $userController = new UserController(); //Connecte à la BDD
     $roomController = new RoomController();
     
+    
     switch($route){
         case 'edit_user':
             $userController->editUser();

@@ -1,8 +1,6 @@
 <?php   
-require "AbstractController.php";
-require "../models/Room.php";
-require "../manager/RoomsManager.php";
-
+require "./models/Room.php";
+require "./manager/RoomsManager.php";
 
 class RoomController extends AbstractController{
     
@@ -10,7 +8,7 @@ class RoomController extends AbstractController{
     
     public function __construct()
     {
-         $this->manager = new UserManager("komlakplomahodoaziadome","3306","db.3wa.io", "bb1c7420a0b6e4e3c2470bbd9b5a341f");
+         $this->manager = new RoomManager("komlakplomahodoaziadome_distorsion","3306","db.3wa.io", "komlakplomahodoaziadome", "bb1c7420a0b6e4e3c2470bbd9b5a341f");
     }
     public function indexRoom()
     {
@@ -21,12 +19,12 @@ class RoomController extends AbstractController{
     {
         if(isset($_POST['name'], $_POST['description']))
         {
-            $room = new Room ($_SESSION['id'], $_POST['name'], $_POST['description']);
-            $this->manager->editRoom($room);
+            $room = new Room ($_POST['name'], $_POST['description']);
+            $this->manager->insertRoom($room);
             $allRooms = $this->manager->getAllRooms();
             $this->render('index_room', $allRooms);
         }else {
-            $allRooms = his->manager->getAllUsers();
+            $allRooms = $this->manager->getAllRooms();
             $this->render('create_room', $allRooms);
         }
     }
@@ -36,11 +34,11 @@ class RoomController extends AbstractController{
          {
              $room = new Room ($_SESSION['id'], $_POST['name'], $_['description']);
              $this->manager->editRoom($room);
-             $allRooms = $this->manager->getAllRooms();
-             $this->render('index_room', $allRooms);
+             $editedRooms = $this->manager->getRoomsById();
+             $this->render('edit_room', $editedRooms);
          } else{
             $allRooms = $this->manager->getallRooms();
-            $this->render('edit_room', $allUsers);
+            $this->render('index_room', $allUsers);
          }
     }
 }
