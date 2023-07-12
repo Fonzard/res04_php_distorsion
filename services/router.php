@@ -28,8 +28,19 @@ function checkRoute(string $route): void
         case'edit_room':
             $roomController->editRoom();
             break;
+            
+        case'index_category':
+            $categorycontroller->indexCategory();
+            break;
+        case'create_category':
+            $categorycontroller->createCategory();
+            break;
+        case'edit_category':
+            $categorycontroller->editCategory();
+            break;
+    
         default:
-            $userController->indexUser();
+            $userController->createCategory();
             break;
     }
 }
